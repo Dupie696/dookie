@@ -1,59 +1,96 @@
-# dookie
-Flash Card App
+---
 
+# Dookie
+A Flash Card App for efficient learning.
 
-# Installation on windows
-All of these commands can be ran from the windows powershell.
+---
 
-This can be access by right click on the start button and clicking:
+## Installation on Windows
+The following instructions assume you are using **Windows PowerShell**.
 
-windows10: powershell
-windows11: terminal
+### Accessing PowerShell
+- **Windows 10:** Right-click the Start button and select `PowerShell`.
+- **Windows 11:** Right-click the Start button and select `Terminal`.
 
-## Install Python
-The Python interpreter is required to execute the project source code.
+---
 
-This can be installed from the window store by running the following command in a powershell terminal:
+### Step 1: Install Python
+The Python interpreter is required to run the project's source code.
+
+To install Python (version 3.11) via the Microsoft Store, run the following command:
 ```powershell
 winget install -e --id Python.Python.3.11
 ```
 
-## installing QT5
-The graphical user interface is written using the QT5 framework library.
+**Note:** After installing Python, you may need to restart your computer to ensure the system PATH is updated correctly.
 
-This can be installed using the python package manager pip
+---
 
+### Step 2: Install PyQt5
+The graphical user interface is built using the Qt5 framework, which is accessible through the PyQt5 library.
+
+Install PyQt5 using `pip`:
 ```powershell
 pip install pyqt5
 ```
 
-## download the source
-This can be manually downloaded and unzipped to the c:\git\dookie directory or you can run the following:
+---
 
-First creat the C:\git\dookie directory with the following command:
+### Step 3: Download the Source Code
+You can either manually download and unzip the source code or automate the process with PowerShell commands.
+
+#### Option 1: Manual Download
+1. Navigate to the [Dookie GitHub Repository](https://github.com/Dupie696/dookie).
+2. Download the source code ZIP file.
+3. Extract the contents to `C:\git\dookie`.
+
+#### Option 2: Automated Download
+Follow these steps to set up the project:
+
+1. **Create the directory:**
+   ```powershell
+   New-Item -ItemType Directory -Path "C:\git\" -Force
+   ```
+
+2. **Download the source code:**
+   ```powershell
+   Invoke-WebRequest -Uri "https://github.com/Dupie696/dookie/archive/refs/heads/main.zip" -OutFile "C:\git\dookie.zip"
+   ```
+
+3. **Extract the ZIP file:**
+   ```powershell
+   Expand-Archive -Path "C:\git\dookie.zip" -DestinationPath "C:\git\" -Force
+   ```
+
+4. **Rename the directory:**
+   ```powershell
+   Rename-Item -Path "C:\git\dookie-main" -NewName "dookie"
+   ```
+
+5. **Clean up unused files:**
+   ```powershell
+   Remove-Item "C:\git\dookie.zip"
+   ```
+
+---
+
+### Step 4: Run the Application
+Navigate to the source directory and execute the application:
 ```powershell
-New-Item -ItemType Directory -Path "C:\git\" -Force
+cd C:\git\dookie
+python main.py
 ```
 
-Next, download the source code tot he c:\git directory, or by running the following command:
-```powershell
-Invoke-WebRequest -Uri "https://github.com/Dupie696/dookie/archive/refs/heads/main.zip" -OutFile "C:\git\dookie.zip"
-```
+---
 
-Finally unzip the file to the c:\git\dookie folder
-```powershell
-Expand-Archive -Path "C:\git\dookie.zip" -DestinationPath "C:\git\" -Force
-```
+## Notes
+- Ensure Python and `pip` are added to your system's PATH during installation.
+- A reboot may be required after installing Python to refresh the system PATH.
+- If you encounter errors, verify all dependencies are installed and up-to-date.
 
-next just a couple of cleanup items.
+---
 
-correct the directory name from dookie-main to just dookie
+### Acknowledgments
+This project was enhanced with insights and assistance from **ChatGPT 4.0**.
 
-```powershell
-Rename-Item -Path "C:\git\dookie-main" -NewName "dookie"
-```
-
-Then delete unused files by running:
-```powershell
-Remove-Item "C:\git\dookie.zip"
-```
+---
