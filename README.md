@@ -26,3 +26,34 @@ This can be installed using the python package manager pip
 ```powershell
 pip install pyqt5
 ```
+
+## download the source
+This can be manually downloaded and unzipped to the c:\git\dookie directory or you can run the following:
+
+First creat the C:\git\dookie directory with the following command:
+```powershell
+New-Item -ItemType Directory -Path "C:\git\" -Force
+```
+
+Next, download the source code tot he c:\git directory, or by running the following command:
+```powershell
+Invoke-WebRequest -Uri "https://github.com/Dupie696/dookie/archive/refs/heads/main.zip" -OutFile "C:\git\dookie.zip"
+```
+
+Finally unzip the file to the c:\git\dookie folder
+```powershell
+Expand-Archive -Path "C:\git\dookie.zip" -DestinationPath "C:\git\" -Force
+```
+
+next just a couple of cleanup items.
+
+correct the directory name from dookie-main to just dookie
+
+```powershell
+Rename-Item -Path "C:\git\dookie-main" -NewName "dookie"
+```
+
+Then delete unused files by running:
+```powershell
+Remove-Item "C:\git\dookie.zip"
+```
